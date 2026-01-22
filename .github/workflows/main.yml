@@ -1,11 +1,21 @@
+name: Deploy to GitHub Pages
 
-      - uses: actions/checkout@v4 # v4로 업데이트
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: npm install
       - name: Build project
         run: npm run build
       - name: Upload production-ready code
-        uses: actions/upload-pages-artifact@v3 # v3로 업데이트
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
@@ -21,4 +31,4 @@
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # v4로 업데이트
+        uses: actions/deploy-pages@v4
