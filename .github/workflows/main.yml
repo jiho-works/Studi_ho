@@ -1,23 +1,13 @@
-name: Deploy to GitHub Pages
 
-on:
-  push:
-    branches:
-      - main # main 브랜치에 푸시될 때마다 실행
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4 # v4로 업데이트
       - name: Install dependencies
         run: npm install
       - name: Build project
         run: npm run build
       - name: Upload production-ready code
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3 # v3로 업데이트
         with:
-          path: ./dist # 빌드된 결과물이 dist 폴더에 저장됨
+          path: ./dist
 
   deploy:
     needs: build
@@ -31,4 +21,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v4 # v4로 업데이트
