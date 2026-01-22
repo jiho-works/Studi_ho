@@ -1,0 +1,7 @@
+{
+  "name": "studi_ho Minimalist Archive",
+  "description": "A modern, black-and-white minimalist personal archive for photos, records, and music videos with an integrated admin panel.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
